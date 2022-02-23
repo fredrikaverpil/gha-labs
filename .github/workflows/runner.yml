@@ -21,6 +21,8 @@ jobs:
 
       - uses: fredrikaverpil/setup-pipx@v1.3
 
+      - run: pipx install poetry
+
       - name: env
         run: env
 
