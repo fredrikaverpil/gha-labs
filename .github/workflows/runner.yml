@@ -23,6 +23,9 @@ jobs:
 
       - run: pipx install poetry
 
+      - run: |
+          echo "$POETRY_BIN_DIR=/hahaha >> $GITHUB_ENV"
+
       - name: env
         run: env
 
