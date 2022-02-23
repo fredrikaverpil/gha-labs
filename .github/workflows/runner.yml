@@ -27,7 +27,7 @@ jobs:
           ls -alh
 
       - name: $HOME/.local
-        if: ${{ runner.os == 'Windows' }}
+        if: ${{ runner.os != 'Windows' }}
         run: |
           cd env:$HOME/.local
           pwd
