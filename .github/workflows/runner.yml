@@ -9,6 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        number: [1, 2] # so to check if disk writes are persistent or not
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -17,26 +18,26 @@ jobs:
         run: |
           cd ${{ env.RUNNER_TEMP }}
           pwd
-          touch i_was_here.txt
+          touch i_was_here_at_$(date).txt
           ls -alh
 
       - name: GITHUB_WORKSPACE
         run: |
           cd ${{ env.GITHUB_WORKSPACE }}
           pwd
-          touch i_was_here.txt
+          touch i_was_here_at_$(date).txt
           ls -alh
 
       - name: GITHUB_ACTION_PATH
         run: |
           cd ${{ env.GITHUB_ACTION_PATH }}
           pwd
-          touch i_was_here.txt
+          touch i_was_here_at_$(date).txt
           ls -alh
 
       - name: RUNNER_TOOL_CACHE
         run: |
           cd ${{ env.RUNNER_TOOL_CACHE }}
           pwd
-          touch i_was_here.txt
+          touch i_was_here_at_$(date).txt
           ls -alh
