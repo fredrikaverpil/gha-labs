@@ -29,7 +29,7 @@ jobs:
       - name: $HOME/.local
         if: ${{ runner.os != 'Windows' }}
         run: |
-          cd env:$HOME/.local
+          cd $HOME/.local
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           ls -alh
