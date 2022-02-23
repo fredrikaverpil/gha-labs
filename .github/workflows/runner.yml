@@ -19,12 +19,11 @@ jobs:
         with:
           python-version: "3.10"
 
-      - uses: fredrikaverpil/setup-pipx@v1.3
-
-      - run: pipx install poetry
-
       - run: |
-          echo "PIPX_BIN_DIR=/hahaha" >> $GITHUB_ENV
+          echo "PIPX_BIN_DIR=$HOME/.local/bin" >> $GITHUB_ENV
+
+      - uses: fredrikaverpil/setup-pipx@v1.3
+      - run: pipx install poetry
 
       - name: env
         run: env
