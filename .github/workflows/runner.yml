@@ -19,9 +19,7 @@ jobs:
           cd ${{ env.RUNNER_TEMP }}
           pwd
 
-          touch i_was_here.txt
-          date > i_was_here.txt
-          cat i_was_here.txt
+          touch i_was_here_${{ matrix.number }}.txt
 
           touch i_was_here_at_$(date).txt
           if [ "$RUNNER_OS" != "Windows" ]; then
@@ -35,9 +33,7 @@ jobs:
           cd ${{ env.GITHUB_WORKSPACE }}
           pwd
 
-          touch i_was_here.txt
-          date > i_was_here.txt
-          cat i_was_here.txt
+          touch i_was_here_${{ matrix.number }}.txt
 
           if [ "$RUNNER_OS" != "Windows" ]; then
             ls -alh
@@ -50,9 +46,7 @@ jobs:
           cd ${{ env.GITHUB_ACTION_PATH }}
           pwd
 
-          touch i_was_here.txt
-          date > i_was_here.txt
-          cat i_was_here.txt
+          touch i_was_here_${{ matrix.number }}.txt
 
           if [ "$RUNNER_OS" != "Windows" ]; then
             ls -alh
@@ -65,9 +59,7 @@ jobs:
           cd ${{ env.RUNNER_TOOL_CACHE }}
           pwd
 
-          touch i_was_here.txt
-          date > i_was_here.txt
-          cat i_was_here.txt
+          touch i_was_here_${{ matrix.number }}.txt
 
           if [ "$RUNNER_OS" != "Windows" ]; then
             ls -alh
