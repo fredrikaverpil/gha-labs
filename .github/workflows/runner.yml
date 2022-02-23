@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: RUNNER_TEMP
-        if: ${{ runner.os != "Windows" }}
+        if: ${{ runner.os != 'Windows' }}
         run: |
           cd ${{ env.RUNNER_TEMP }}
           pwd
@@ -23,7 +23,7 @@ jobs:
           ls -alh
 
       - name: GITHUB_WORKSPACE
-        if: ${{ runner.os != "Windows" }}
+        if: ${{ runner.os != 'Windows' }}
         run: |
           cd ${{ env.GITHUB_WORKSPACE }}
           pwd
@@ -31,7 +31,7 @@ jobs:
           ls -alh
 
       - name: GITHUB_ACTION_PATH
-        if: ${{ runner.os != "Windows" }}
+        if: ${{ runner.os != 'Windows' }}
         run: |
           cd ${{ env.GITHUB_ACTION_PATH }}
           pwd
@@ -39,7 +39,7 @@ jobs:
           ls -alh
 
       - name: RUNNER_TOOL_CACHE
-        if: ${{ runner.os != "Windows" }}
+        if: ${{ runner.os != 'Windows' }}
         run: |
           cd ${{ env.RUNNER_TOOL_CACHE }}
           pwd
@@ -49,7 +49,7 @@ jobs:
       # Windows
 
       - name: RUNNER_TEMP
-        if: ${{ runner.os == "Windows" }}
+        if: ${{ runner.os == 'Windows' }}
         run: |
           cd ${{ env.RUNNER_TEMP }}
           pwd
@@ -57,7 +57,7 @@ jobs:
           dir
 
       - name: GITHUB_WORKSPACE
-        if: ${{ runner.os == "Windows" }}
+        if: ${{ runner.os == 'Windows' }}
         run: |
           cd ${{ env.GITHUB_WORKSPACE }}
           pwd
@@ -65,7 +65,7 @@ jobs:
           dir
 
       - name: GITHUB_ACTION_PATH
-        if: ${{ runner.os == "Windows" }}
+        if: ${{ runner.os == 'Windows' }}
         run: |
           cd ${{ env.GITHUB_ACTION_PATH }}
           pwd
@@ -73,7 +73,7 @@ jobs:
           dir
 
       - name: RUNNER_TOOL_CACHE
-        if: ${{ runner.os == "Windows" }}
+        if: ${{ runner.os == 'Windows' }}
         run: |
           cd ${{ env.RUNNER_TOOL_CACHE }}
           pwd
