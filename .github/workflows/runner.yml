@@ -26,6 +26,8 @@ jobs:
       - name: env
         run: env
 
+      # commented out paths are not cross-platform or won't work
+
       - name: HOME
         if: ${{ runner.os != 'Windows' }}
         run: |
@@ -44,8 +46,8 @@ jobs:
 
       - name: "~/.cache"
         if: ${{ runner.os != 'Windows' }}
-        working-directory: "~/.cache"
         run: |
+          cd ~/.cache
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           ls -alh
