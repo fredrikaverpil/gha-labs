@@ -15,53 +15,67 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: RUNNER_TEMP
+        if: ${{ runner.os != "Windows" }}
         run: |
           cd ${{ env.RUNNER_TEMP }}
           pwd
-
           touch i_was_here_${{ matrix.number }}.txt
-
-          if [ "$RUNNER_OS" != "Windows" ]; then
-            ls -alh
-          else
-            dir
-          fi
+          ls -alh
 
       - name: GITHUB_WORKSPACE
+        if: ${{ runner.os != "Windows" }}
         run: |
           cd ${{ env.GITHUB_WORKSPACE }}
           pwd
-
           touch i_was_here_${{ matrix.number }}.txt
-
-          if [ "$RUNNER_OS" != "Windows" ]; then
-            ls -alh
-          else
-            dir
-          fi
+          ls -alh
 
       - name: GITHUB_ACTION_PATH
+        if: ${{ runner.os != "Windows" }}
         run: |
           cd ${{ env.GITHUB_ACTION_PATH }}
           pwd
-
           touch i_was_here_${{ matrix.number }}.txt
-
-          if [ "$RUNNER_OS" != "Windows" ]; then
-            ls -alh
-          else
-            dir
-          fi
+          ls -alh
 
       - name: RUNNER_TOOL_CACHE
+        if: ${{ runner.os != "Windows" }}
         run: |
           cd ${{ env.RUNNER_TOOL_CACHE }}
           pwd
-
           touch i_was_here_${{ matrix.number }}.txt
+          ls -alh
 
-          if [ "$RUNNER_OS" != "Windows" ]; then
-            ls -alh
-          else
-            dir
-          fi
+      # Windows
+
+      - name: RUNNER_TEMP
+        if: ${{ runner.os == "Windows" }}
+        run: |
+          cd ${{ env.RUNNER_TEMP }}
+          pwd
+          touch i_was_here_${{ matrix.number }}.txt
+          dir
+
+      - name: GITHUB_WORKSPACE
+        if: ${{ runner.os == "Windows" }}
+        run: |
+          cd ${{ env.GITHUB_WORKSPACE }}
+          pwd
+          touch i_was_here_${{ matrix.number }}.txt
+          dir
+
+      - name: GITHUB_ACTION_PATH
+        if: ${{ runner.os == "Windows" }}
+        run: |
+          cd ${{ env.GITHUB_ACTION_PATH }}
+          pwd
+          touch i_was_here_${{ matrix.number }}.txt
+          dir
+
+      - name: RUNNER_TOOL_CACHE
+        if: ${{ runner.os == "Windows" }}
+        run: |
+          cd ${{ env.RUNNER_TOOL_CACHE }}
+          pwd
+          touch i_was_here_${{ matrix.number }}.txt
+          dir
