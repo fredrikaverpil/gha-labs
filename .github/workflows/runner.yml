@@ -19,6 +19,8 @@ jobs:
         with:
           python-version: "3.10"
 
+      - uses: fredrikaverpil/setup-pipx@v1.3
+
       - name: env
         run: env
 
@@ -34,14 +36,6 @@ jobs:
         if: ${{ runner.os != 'Windows' }}
         run: |
           cd ~
-          pwd
-          touch i_was_here_${{ matrix.number }}.txt
-          ls -alh
-
-      - name: HOME - working-directory
-        if: ${{ runner.os != 'Windows' }}
-        working-directory: "~"
-        run: |
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           ls -alh
@@ -92,14 +86,6 @@ jobs:
         if: ${{ runner.os == 'Windows' }}
         run: |
           cd ~
-          pwd
-          touch i_was_here_${{ matrix.number }}.txt
-          dir
-
-      - name: HOME - working-directory
-        if: ${{ runner.os == 'Windows' }}
-        working-directory: $HOME
-        run: |
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           dir
