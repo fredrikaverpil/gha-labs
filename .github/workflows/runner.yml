@@ -18,6 +18,14 @@ jobs:
       - name: env
         run: env
 
+      - name: HOME
+        if: ${{ runner.os != 'Windows' }}
+        run: |
+          cd $HOME
+          pwd
+          touch i_was_here_${{ matrix.number }}.txt
+          ls -alh
+
       - name: RUNNER_TEMP
         if: ${{ runner.os != 'Windows' }}
         run: |
@@ -52,10 +60,18 @@ jobs:
 
       # Windows
 
+      - name: HOME
+        if: ${{ runner.os == 'Windows' }}
+        run: |
+          cd $HOME
+          pwd
+          touch i_was_here_${{ matrix.number }}.txt
+          dir
+
       - name: RUNNER_TEMP
         if: ${{ runner.os == 'Windows' }}
         run: |
-          cd $RUNNER_TEMP
+          cd env:$RUNNER_TEMP
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           dir
@@ -63,7 +79,7 @@ jobs:
       - name: GITHUB_WORKSPACE
         if: ${{ runner.os == 'Windows' }}
         run: |
-          cd $GITHUB_WORKSPACE
+          cd env:$GITHUB_WORKSPACE
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           dir
@@ -71,7 +87,7 @@ jobs:
       - name: GITHUB_ACTION_PATH
         if: ${{ runner.os == 'Windows' }}
         run: |
-          cd $GITHUB_ACTION_PATH
+          cd env:$GITHUB_ACTION_PATH
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           dir
@@ -79,7 +95,7 @@ jobs:
       - name: RUNNER_TOOL_CACHE
         if: ${{ runner.os == 'Windows' }}
         run: |
-          cd $RUNNER_TOOL_CACHE
+          cd env:$RUNNER_TOOL_CACHE
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           dir
