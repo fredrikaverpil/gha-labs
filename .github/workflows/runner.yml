@@ -17,7 +17,7 @@ jobs:
       - name: RUNNER_TEMP
         if: ${{ runner.os != 'Windows' }}
         run: |
-          cd ${{ env.RUNNER_TEMP }}
+          cd ${{ RUNNER_TEMP }}
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           ls -alh
@@ -25,7 +25,7 @@ jobs:
       - name: GITHUB_WORKSPACE
         if: ${{ runner.os != 'Windows' }}
         run: |
-          cd ${{ env.GITHUB_WORKSPACE }}
+          cd ${{ GITHUB_WORKSPACE }}
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           ls -alh
@@ -33,7 +33,7 @@ jobs:
       - name: GITHUB_ACTION_PATH
         if: ${{ runner.os != 'Windows' }}
         run: |
-          cd ${{ env.GITHUB_ACTION_PATH }}
+          cd ${{ GITHUB_ACTION_PATH }}
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           ls -alh
@@ -41,7 +41,7 @@ jobs:
       - name: RUNNER_TOOL_CACHE
         if: ${{ runner.os != 'Windows' }}
         run: |
-          cd ${{ env.RUNNER_TOOL_CACHE }}
+          cd ${{ RUNNER_TOOL_CACHE }}
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           ls -alh
@@ -51,7 +51,7 @@ jobs:
       - name: RUNNER_TEMP
         if: ${{ runner.os == 'Windows' }}
         run: |
-          cd ${{ env.RUNNER_TEMP }}
+          cd ${{ RUNNER_TEMP }}
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           dir
@@ -59,7 +59,7 @@ jobs:
       - name: GITHUB_WORKSPACE
         if: ${{ runner.os == 'Windows' }}
         run: |
-          cd ${{ env.GITHUB_WORKSPACE }}
+          cd ${{ GITHUB_WORKSPACE }}
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           dir
@@ -67,7 +67,7 @@ jobs:
       - name: GITHUB_ACTION_PATH
         if: ${{ runner.os == 'Windows' }}
         run: |
-          cd ${{ env.GITHUB_ACTION_PATH }}
+          cd ${{ GITHUB_ACTION_PATH }}
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           dir
@@ -75,7 +75,7 @@ jobs:
       - name: RUNNER_TOOL_CACHE
         if: ${{ runner.os == 'Windows' }}
         run: |
-          cd ${{ env.RUNNER_TOOL_CACHE }}
+          cd ${{ RUNNER_TOOL_CACHE }}
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           dir
