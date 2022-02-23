@@ -20,8 +20,8 @@ jobs:
 
       - name: RUNNER_TEMP
         if: ${{ runner.os != 'Windows' }}
-        working-directory: $RUNNER_TEMP
         run: |
+          cd $RUNNER_TEMP
           pwd
           touch i_was_here_${{ matrix.number }}.txt
           ls -alh
