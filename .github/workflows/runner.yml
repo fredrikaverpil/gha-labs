@@ -40,6 +40,14 @@ jobs:
           touch i_was_here_${{ matrix.number }}.txt
           ls -alh
 
+      - name: /home/runner/work
+        if: ${{ runner.os != 'Windows' }}
+        working-directory: /home/runner/work
+        run: |
+          pwd
+          touch i_was_here_${{ matrix.number }}.txt
+          ls -alh
+
       - name: RUNNER_TEMP
         if: ${{ runner.os != 'Windows' }}
         run: |
@@ -74,13 +82,13 @@ jobs:
 
       # Windows
 
-      - name: HOME
-        if: ${{ runner.os == 'Windows' }}
-        run: |
-          cd env:$HOME
-          pwd
-          touch i_was_here_${{ matrix.number }}.txt
-          dir
+      # - name: HOME
+      #   if: ${{ runner.os == 'Windows' }}
+      #   run: |
+      #     cd env:$HOME
+      #     pwd
+      #     touch i_was_here_${{ matrix.number }}.txt
+      #     dir
 
       - name: "~"
         if: ${{ runner.os == 'Windows' }}
